@@ -29,7 +29,7 @@ Implemented in:
 <pre>
 MPD	 	- clj-mpd.core
 MPDAdmin	- clj-mpd.admin
-MPDCommand
+MPDCommand      - clj-mpd.command
 MPDDatabase	- clj-mpd.database
 MPDFile		- clj-mpd.file
 MPDOutput
@@ -51,5 +51,6 @@ gurthang:clj-mpd {1571}
 ## License
 
 Copyright (C) 2011 Jasper Lievisse Adriaanse <jasper@humppa.nl>
+Some changes Copyright (C) 2012 Albin Stjerna <albin.stjerna@gmail.com>
 
 Licensed under the EPL (see the file COPYING).
