@@ -31,3 +31,13 @@
   "Return a seq-ed List<MPDSong> from a playlist name."
   [name]
   (seq (.listPlaylistSongs (str name))))
+
+(defn list-all-artists
+  "Return a seq-ed List<MPDArtist> of all artists in the database."
+  [db]
+  (seq (.listAllArtists db)))
+
+(defn list-albums-by-artist
+  "Returns a seq-ed List<MPDAlbum> of all albums by artist in the database."
+  [artist]
+  (seq (.listAlbumsByArtist artist)))
