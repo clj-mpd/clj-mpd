@@ -14,3 +14,20 @@
   "Instantiate an MPDDatabase object."
   [mpd]
   (.getMPDDatabase mpd))
+
+(defn list-saved-playlists
+  "List all playlists saved in the database. Return as seq-ed List<MPDSavedPlaylist>."
+  [db]
+  (seq (.listSavedPlaylists db)))
+
+;; This does not really deserve its own namespace.
+
+(defn saved-playlist-to-songs
+  "Convert a MPDSavedPlaylist to seq-ed List<MPDSong>."
+  [pl]
+  (seq (.getSongs pl)))
+
+(defn list-playlist-songs
+  "Return a seq-ed List<MPDSong> from a playlist name."
+  [name]
+  (seq (.listPlaylistSongs (str name))))
