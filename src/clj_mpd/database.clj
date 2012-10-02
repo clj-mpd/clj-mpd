@@ -39,5 +39,5 @@
 
 (defn list-albums-by-artist
   "Returns a seq-ed List<MPDAlbum> of all albums by artist in the database."
-  [artist]
-  (seq (.listAlbumsByArtist artist)))
+  [db artist]
+  (seq (.listAlbumsByArtist db artist)))
