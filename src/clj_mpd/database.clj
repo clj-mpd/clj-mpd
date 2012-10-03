@@ -8,12 +8,13 @@
 
 (ns ^{:author "Jasper Lievisse Adriaanse"
       :doc "Database related functions for clj-mpd"}
-  clj-mpd.database)
+  clj-mpd.database
+  (:require clj-mpd.core))
 
 (defn create-database
   "Instantiate an MPDDatabase object."
   [mpd]
-  (.getMPDDatabase mpd))
+  (.getMPDDatabase clj-mpd.core/*mpd-connection*))
 
 (defn list-saved-playlists
   "List all playlists saved in the database. Return as seq-ed List<MPDSavedPlaylist>."
