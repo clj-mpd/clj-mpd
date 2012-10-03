@@ -8,12 +8,13 @@
 
 (ns ^{:author "Jasper Lievisse Adriaanse"
       :doc "Playlist related functions for clj-mpd"}
-  clj-mpd.player)
+  clj-mpd.player
+  (:require clj-mpd.core))
 
 (defn create-player
   "Instantiate a MPDPlayer object"
-  [mpd]
-  (.getMPDPlayer mpd))
+  []
+  (.getMPDPlayer clj-mpd.core/*mpd-connection*))
 
 (defn get-current-song
   "Get current song as MPDSong"
