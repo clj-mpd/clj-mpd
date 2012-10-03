@@ -5,8 +5,6 @@
             [clj-mpd.item.song :as song]
             [clj-mpd.utils :as utils]))
 
-(defn setup-player [mpd]
-  (player/create-player mpd))
 
 (defn ^{:doc "Not much here, just some test code."}
   -main [& args]
