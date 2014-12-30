@@ -9,7 +9,7 @@
   "Not much here, just some test code."
   [& args]
 
-  (connect! :hostname "localhost" :port "6600")
+  (connect! :hostname "localhost" :port 6600)
 
   (print "Current song: ")
   (-> (player/create-player) player/get-current-song song/get-artist (print "- "))
