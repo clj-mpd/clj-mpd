@@ -14,7 +14,7 @@
   clj-mpd.core
   (:import (org.bff.javampd MPD)))
 
-(declare ^:dynamic ^org.bff.javampd.MPD *mpd-connection*)
+(declare ^:dynamic ^MPD *mpd-connection*)
 
 (defn set-connection!
   "Sets given MPD connection as default by altering *mpd-connection* var"
