@@ -6,16 +6,10 @@
 ;  the terms of this license.
 ;  You must not remove this notice, or any other, from this software.
 
-(ns ^{:author "Jasper Lievisse Adriaanse"
+(ns ^{:author "Jasper Lievisse Adriaanse, Albin Stjerna and Dave Yarwood"
       :doc "MPDSong related functions for clj-mpd"}
   clj-mpd.item.song
   (:require [clj-mpd.core :as clj-mpd]))
-
-;(defn get-comment [song]
-;  (let [comment (.getComment song)]
-;    (case (count comment)
-;      0 "(empty)"
-;      comment)))
 
 (defn get-album
   "Get the album of the song (as MPDAlbum.toString())."
@@ -26,6 +20,12 @@
   "Get artist of the song (as MPDArist.toString())."
   [song]
   (str (.getArtistName song)))
+
+;(defn get-comment [song]
+;  (let [comment (.getComment song)]
+;    (case (count comment)
+;      0 "(empty)"
+;      comment)))
 
 (defn get-comment
   "Get the comment tag."
