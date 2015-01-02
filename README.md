@@ -9,8 +9,6 @@ extra helper functions and other functionality.
 
 * Implement "useful" methods from javampd.
 * Fix NULL derefs when MPD isn't running/playing.
-* Proper way to set up a connection and use it throughout clj-mpd.test.status,
-  instead of re-creating MPD/MPDPlayer all the time.
 
 ### To implement:
 
