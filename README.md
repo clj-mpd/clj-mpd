@@ -56,8 +56,8 @@ Time played: 4:50 / 5:12
 
 ## License
 
-Copyright (C) 2011 Jasper Lievisse Adriaanse <jasper@humppa.nl>
-Some changes copyright (C) 2012 Albin Stjerna <albin.stjerna@gmail.com>
-More changes copyright (C) 2014-2015 Dave Yarwood <dave.yarwood@gmail.com>
+Copyright (C) 2011 Jasper Lievisse Adriaanse
+Some changes copyright (C) 2012 Albin Stjerna
+More changes copyright (C) 2014-2015 Dave Yarwood
 
 Licensed under the EPL (see the file COPYING).
