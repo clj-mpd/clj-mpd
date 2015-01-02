@@ -56,10 +56,10 @@ Time played: 4:50 / 5:12
 
 ## License
 
-Copyright (C) 2011 Jasper Lievisse Adriaanse
+Copyright © 2011 Jasper Lievisse Adriaanse
 
-Some changes copyright (C) 2012 Albin Stjerna
+Some changes copyright © 2012 Albin Stjerna
 
-More changes copyright (C) 2014-2015 Dave Yarwood
+More changes copyright © 2014-2015 Dave Yarwood
 
 Licensed under the EPL (see the file COPYING).
