@@ -11,26 +11,35 @@
   clj-mpd.item.song
   (:require [clj-mpd.core :as clj-mpd]))
 
+(defn get-file
+  "Get the path of the song (as String)."
+  [song]
+  (.getFile song))
+
+(defn get-title
+  "Get the song title."
+  [song]
+  (.getTitle song))
+
 (defn get-album
   "Get the album of the song (as MPDAlbum.toString())."
   [song]
   (str (.getAlbumName song)))
 
 (defn get-artist
-  "Get artist of the song (as MPDArist.toString())."
+  "Get artist of the song (as MPDArtist.toString())."
   [song]
   (str (.getArtistName song)))
-
-;(defn get-comment [song]
-;  (let [comment (.getComment song)]
-;    (case (count comment)
-;      0 "(empty)"
-;      comment)))
 
 (defn get-comment
   "Get the comment tag."
   [song]
   (.getComment song))
+
+(defn get-track-number
+  "Get the track number."
+  [song]
+  (.getTrack song))
 
 (defn get-disc-number
   "Get the disc number."
@@ -42,22 +51,24 @@
   [song]
   (.getLength song))
 
-(defn get-file
-  "Get the path of the song (as String)."
-  [song]
-  (.getFile song))
-
 (defn get-genre
   "Get the genre of the song."
   [song]
   (.getGenre song))
 
+(defn get-year
+  "Get the song year."
+  [song]
+  (.getYear song))
+
 (defn get-id
-  "Get the song's ID in the playlist."
+  "Get the song's ID in the playlist.
+   Returns -1 if the song is not in the playlist."
   [song]
   (.getId song))
 
-(defn get-title
-  "Get the song title."
+(defn get-position
+  "Get the song's position in the current playlist.
+   Returns -1 if the song is not in the playlist."
   [song]
-  (.getTitle song))
+  (.getPosition song))
