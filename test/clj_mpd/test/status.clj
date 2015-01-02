@@ -1,16 +1,13 @@
-(ns clj-mpd.test_app
-  (:require [clj-mpd.core :refer (connect!)]
+(ns clj-mpd.test.status
+  (:require [clojure.test :refer :all]
+            [clj-mpd.core :refer (connect!)]
             [clj-mpd.playlist :as plist]
             [clj-mpd.player :as player]
             [clj-mpd.item.song :as song]
             [clj-mpd.utils :as utils]))
 
-(defn -main
-  "Not much here, just some test code."
-  [& args]
-
+(deftest display-currently-playing
   (connect! :hostname "localhost" :port 6600)
-
   (print "Current song: ")
   (-> (player/create-player) player/get-current-song song/get-artist (print "- "))
   (-> (player/create-player) player/get-current-song song/get-title println)

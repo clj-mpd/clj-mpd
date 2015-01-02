@@ -3,4 +3,4 @@
   :dependencies [[org.clojure/clojure "1.6.0"]
                  [net.thejavashop/javampd "5.0.3"]
                  [clj-wallhack "1.0"]]
-  :main clj-mpd.test_app)
+  :main clj-mpd.core)

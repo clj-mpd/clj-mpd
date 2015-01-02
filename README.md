@@ -1,56 +1,63 @@
 # clj-mpd
 
-Clojure library wrapping the javampd [1] library along with several
+Clojure library wrapping the [javampd][1] library along with several
 extra helper functions and other functionality.
 
-1: http://www.thejavashop.net/javampd/
+[1]: http://www.thejavashop.net/javampd/
 
 ## ToDo
 
-Evertying, which includes:
 * Implement "useful" methods from javampd.
 * Fix NULL derefs when MPD isn't running/playing.
-* Proper way to setup a connection and use it throughout
-  clj-mpd.test_app, instead re-creating MPD/MPDPlayer all the time.
+* Proper way to setup a connection and use it throughout clj-mpd.test.status,
+  instead of re-creating MPD/MPDPlayer all the time.
 
 ### To implement:
 
 <pre>
 MPDAudioInfo
 MPDItem
-	MPDAlbum
-	MPDArtist
-	MPDGenre
-	MPDSavedPlaylist
-	MPDSong
+  MPDAlbum
+  MPDArtist
+  MPDGenre
+  MPDSavedPlaylist
+  MPDSong
 </pre>
 
 Implemented in:
 <pre>
-MPD	 	- clj-mpd.core
-MPDAdmin	- clj-mpd.admin
-MPDCommand      - clj-mpd.command
-MPDDatabase	- clj-mpd.database
-MPDFile		- clj-mpd.file
+MPD         - clj-mpd.core
+MPDAdmin    - clj-mpd.admin
+MPDCommand  - clj-mpd.command
+MPDDatabase - clj-mpd.database
+MPDFile     - clj-mpd.file
 MPDOutput
-MPDPlayer	- clj-mpd.player
-MPDPlaylist	- clj-mpd.playlist
+MPDPlayer   - clj-mpd.player
+MPDPlaylist - clj-mpd.playlist
 </pre>
 
 ## Usage
 
-Don't use it yet (partly because there is nothing to use..)
+clj-mpd is still a work in progress -- use at your own peril.
 
-If you do, use 'lein run':
-gurthang:clj-mpd {1570} lein run
-Current song: Deadmau5 - Dance Department
-From the album: Dance Department (21-05-2011)
-Time played: 20:41 / 57:37
-gurthang:clj-mpd {1571} 
+For a simple demo, start mpd locally and then run `lein test`:
+
+```
+dave@skeggox [09:16 PM] ~/Code/clj-mpd : lein test
+...
+lein test clj-mpd.test.status
+...
+Current song: Brian Eno - Some of Them Are Old
+From the album: Here Come the Warm Jets
+Time played: 4:50 / 5:12
+...
+```
+
 
 ## License
 
 Copyright (C) 2011 Jasper Lievisse Adriaanse <jasper@humppa.nl>
-Some changes Copyright (C) 2012 Albin Stjerna <albin.stjerna@gmail.com>
+Some changes copyright (C) 2012 Albin Stjerna <albin.stjerna@gmail.com>
+More changes copyright (C) 2014-2015 Dave Yarwood <dave.yarwood@gmail.com>
 
 Licensed under the EPL (see the file COPYING).
