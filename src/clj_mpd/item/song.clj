@@ -20,12 +20,12 @@
 (defn get-album
   "Get the album of the song (as MPDAlbum.toString())."
   [song]
-  (str (.getAlbum song)))
+  (str (.getAlbumName song)))
 
 (defn get-artist
   "Get artist of the song (as MPDArist.toString())."
   [song]
-  (str (.getArtist song)))
+  (str (.getArtistName song)))
 
 (defn get-comment
   "Get the comment tag."

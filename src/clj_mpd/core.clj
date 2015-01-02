@@ -12,7 +12,7 @@
 (ns ^{:author "Jasper Lievisse Adriaanse, Albin Stjerna and Dave Yarwood"
       :doc "clj-mpd core"}
   clj-mpd.core
-  (:import (org.bff.javampd MPD)))
+  (:import (org.bff.javampd MPD MPD$Builder)))
 
 (declare ^:dynamic ^MPD *mpd-connection*)
 
@@ -26,7 +26,9 @@
 
   Defaults to localhost:6600 if not provided."
   ^MPD [& {:keys [hostname port] :or {hostname "localhost", port 6600}}]
-  (set-connection! (MPD. hostname port)))
+  (let [builder (doto (MPD$Builder.) (.server hostname) (.port port))
+        mpd (.build builder)]
+    (set-connection! mpd)))
 
 (defmacro with-connection
   [conn & body]

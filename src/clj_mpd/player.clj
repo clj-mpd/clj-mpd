@@ -16,7 +16,7 @@
   ([]
     (create-player *mpd-connection*))
   ([conn]
-    (.getMPDPlayer conn)))
+    (.getPlayer conn)))
 
 (defn get-current-song
   "Get current song as MPDSong"
