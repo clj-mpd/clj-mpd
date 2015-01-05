@@ -13,20 +13,7 @@ extra helper functions and other functionality.
 ### To implement:
 
 <pre>
-MPDItem
-  MPDSavedPlaylist
-</pre>
-
-Implemented in:
-<pre>
-MPD         - clj-mpd.core
-MPDAdmin    - clj-mpd.admin
-MPDCommand  - clj-mpd.command
-MPDDatabase - clj-mpd.database
-MPDFile     - clj-mpd.file
 MPDOutput
-MPDPlayer   - clj-mpd.player
-MPDPlaylist - clj-mpd.playlist
 </pre>
 
 ## Usage
