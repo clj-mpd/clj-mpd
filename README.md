@@ -18,7 +18,6 @@ MPDItem
   MPDArtist
   MPDGenre
   MPDSavedPlaylist
-  MPDSong
 </pre>
 
 Implemented in:
@@ -49,7 +48,6 @@ From the album: Here Come the Warm Jets
 Time played: 4:50 / 5:12
 ...
 ```
-
 
 ## License
 
