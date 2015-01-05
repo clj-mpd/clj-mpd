@@ -1,8 +1,7 @@
 (ns ^{:author "Dave Yarwood"
       :doc "MPDAudioInfo related functions for clj-mpd"}
   clj-mpd.item.audio-info
-  (:require [clojure.string :as str])
-  (:import [org.bff.javampd.objects MPDAudioInfo]))
+  (:require [clojure.string :as str]))
 
 (defn get-sample-rate
   "Get the sample rate."
