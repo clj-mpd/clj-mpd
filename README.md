@@ -13,7 +13,6 @@ extra helper functions and other functionality.
 ### To implement:
 
 <pre>
-MPDAudioInfo
 MPDItem
   MPDAlbum
   MPDArtist

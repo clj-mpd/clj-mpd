@@ -41,14 +41,12 @@
   [player]
   (.getBitrate player))
 
-(defn get-audio-details
-  "Get the audio details (sample rate:number of bits:channels)."
+(defn get-audio-info
+  "Get the audio details, as an MPDAudioInfo object.
+   The sample rate, number of bits, and number of channels
+   can be extracted from this -- see clj-mpd.item.audio-info."
   [player]
-  (let [details (.getAudioDetails player)
-        sample-rate (.getSampleRate details)
-        bits (.getBits details)
-        channels (.getChannels details)]
-    (str sample-rate \: bits \: channels)))
+  (.getAudioDetails player))
 
 (defn get-volume
   "Get the current volume."
