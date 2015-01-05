@@ -14,7 +14,6 @@ extra helper functions and other functionality.
 
 <pre>
 MPDItem
-  MPDAlbum
   MPDArtist
   MPDGenre
   MPDSavedPlaylist
