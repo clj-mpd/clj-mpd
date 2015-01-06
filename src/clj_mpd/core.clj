@@ -18,8 +18,7 @@
 
 (defn mpd
   "Create an MPD object, representing a connection to an MPD server running
-   on a given host and port. Can optionally take a password argument, for
-   MPD servers with password authentication.
+   on a given host and port. Takes optional password and timeout options.
 
    Creating the MPD object implicitly opens a connection to that MPD server.
    The JavaMPD docs recommend closing the connection once you're done with it;
@@ -29,12 +28,13 @@
 
    As an alternative to using with-mpd-connection, you can also manually
    disconnect the MPD connection using the disconnect! function."
-  ^MPD [& {:keys [hostname port password]
+  ^MPD [& {:keys [hostname port password timeout]
            :or {hostname "localhost", port 6600}}]
   (let [b (MPD$Builder.)]
     (.server b hostname)
     (.port b port)
     (when password (.password b password))
+    (when timeout (.timeout b timeout))
     (.build b)))
 
 (defn connect!
