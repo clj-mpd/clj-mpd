@@ -7,7 +7,14 @@ extra helper functions and other functionality.
 
 ## ToDo
 
-* Implement "useful" methods from javampd.
+* Write tests. (javampd has good tests for reference)
+* Implement (if useful):
+  * MPDPlaylist
+  * MPDAdmin
+  * MPDDatabaseManager
+  * MPDServerStatistics
+  * MPDServerStatus
+  * MPDCommand
 
 ## Usage
 
