@@ -41,13 +41,6 @@
   [player]
   (.getBitrate player))
 
-(defn get-audio-info
-  "Get the audio details, as an MPDAudioInfo object.
-   The sample rate, number of bits, and number of channels
-   can be extracted from this -- see clj-mpd.item.audio-info."
-  [player]
-  (.getAudioDetails player))
-
 (defn get-volume
   "Get the current volume."
   [player]

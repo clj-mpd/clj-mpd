@@ -3,6 +3,11 @@
   clj-mpd.item.audio-info
   (:require [clojure.string :as str]))
 
+(defn get-audio-info
+  "Get the audio details of an MPDPlayer."
+  [player]
+  (.getAudioDetails player))
+
 (defn get-sample-rate
   "Get the sample rate."
   [audioinfo]
