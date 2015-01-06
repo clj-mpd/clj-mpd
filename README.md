@@ -8,7 +8,6 @@ extra helper functions and other functionality.
 ## ToDo
 
 * Implement "useful" methods from javampd.
-* Fix NULL derefs when MPD isn't running/playing.
 
 ## Usage
 
