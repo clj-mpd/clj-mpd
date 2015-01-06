@@ -16,24 +16,59 @@
 
 (declare ^:dynamic ^MPD *mpd-connection*)
 
-(defn set-connection!
-  "Sets given MPD connection as default by altering *mpd-connection* var"
-  ^MPD [^MPD conn]
-  (alter-var-root (var *mpd-connection*) (constantly conn)))
+(defn mpd
+  "Create an MPD object, representing a connection to an MPD server running
+   on a given host and port. Can optionally take a password argument, for
+   MPD servers with password authentication.
 
-(defn connect!
-  "Connect to MPD and store the connection in the *mpd-connection* var.
+   Creating the MPD object implicitly opens a connection to that MPD server.
+   The JavaMPD docs recommend closing the connection once you're done with it;
+   the most idiomatic/functional way to handle this in Clojure is to use the
+   with-mpd-connection macro, which ensures that the connection is closed once
+   you're done with it.
 
-  Defaults to localhost:6600 if not provided."
+   As an alternative to using with-mpd-connection, you can also manually
+   disconnect the MPD connection using the disconnect! function."
   ^MPD [& {:keys [hostname port password]
            :or {hostname "localhost", port 6600}}]
   (let [b (MPD$Builder.)]
     (.server b hostname)
     (.port b port)
     (when password (.password b password))
-    (set-connection! (.build b))))
+    (.build b)))
 
-(defmacro with-connection
+(defn connect!
+  "Sets an MPD connection as default by altering the *mpd-connection* var.
+
+   If no argument or :default is provided, uses localhost:6600."
+  ([]
+    (connect! (mpd)))
+  ([^MPD conn]
+    (alter-var-root (var *mpd-connection*) (constantly conn))))
+
+(defn disconnect!
+  "Close an MPD connection. The JavaMPD docs note that the connection
+   remains open for the life of the MPD object, and that we should call
+   .close() on the object when we're done with it.
+
+   If no argument is provided, closes the default connection *mpd-connection*."
+  ([]
+    (disconnect! *mpd-connection*))
+  ([^MPD conn]
+    (.close conn)))
+
+(defmacro with-mpd-connection
+  "A convenience macro for working with MPD connections.
+
+   Creates an MPD connection, executes the expressions in body with the
+   connection bound to *mpd-connection*, and closes the connection.
+
+   If :default is provided as the connection, connects to the MPD at
+   localhost:6600."
   [conn & body]
-  `(binding [*mpd-connection* ~conn]
-     (do ~@body)))
+  `(do
+     (connect! (if (= ~conn :default)
+                 (mpd)
+                 ~conn))
+     ~@body
+     (disconnect!)))
