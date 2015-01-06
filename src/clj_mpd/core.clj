@@ -75,20 +75,28 @@
 
 (defn get-version
   "Get the MPD version running on the server."
-  [mpd]
-  (.getVersion mpd))
+  ([]
+    (get-version *mpd-connection*))
+  ([mpd]
+    (.getVersion mpd)))
 
 (defn get-port
   "Get the port on which the server is running."
-  [mpd]
-  (.getPort mpd))
+  ([]
+    (get-port *mpd-connection*))
+  ([mpd]
+    (.getPort mpd)))
 
 (defn get-address
   "Get the Inet address where the server lives."
-  [mpd]
-  (.getAddress mpd))
+  ([]
+    (get-address *mpd-connection*))
+  ([mpd]
+    (.getAddress mpd)))
 
 (defn get-timeout
   "Get the timeout of an MPD server. (0 if no timeout)"
-  [mpd]
-  (.getTimeout mpd))
+  ([]
+    (get-timeout *mpd-connection*))
+  ([mpd]
+    (.getTimeout mpd)))
