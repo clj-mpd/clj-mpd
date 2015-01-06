@@ -25,10 +25,13 @@
   "Connect to MPD and store the connection in the *mpd-connection* var.
 
   Defaults to localhost:6600 if not provided."
-  ^MPD [& {:keys [hostname port] :or {hostname "localhost", port 6600}}]
-  (let [builder (doto (MPD$Builder.) (.server hostname) (.port port))
-        mpd (.build builder)]
-    (set-connection! mpd)))
+  ^MPD [& {:keys [hostname port password]
+           :or {hostname "localhost", port 6600}}]
+  (let [b (MPD$Builder.)]
+    (.server b hostname)
+    (.port b port)
+    (when password (.password b password))
+    (set-connection! (.build b))))
 
 (defmacro with-connection
   [conn & body]
