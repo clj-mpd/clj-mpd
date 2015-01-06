@@ -72,3 +72,23 @@
                  ~conn))
      ~@body
      (disconnect!)))
+
+(defn get-version
+  "Get the MPD version running on the server."
+  [mpd]
+  (.getVersion mpd))
+
+(defn get-port
+  "Get the port on which the server is running."
+  [mpd]
+  (.getPort mpd))
+
+(defn get-address
+  "Get the Inet address where the server lives."
+  [mpd]
+  (.getAddress mpd))
+
+(defn get-timeout
+  "Get the timeout of an MPD server. (0 if no timeout)"
+  [mpd]
+  (.getTimeout mpd))
