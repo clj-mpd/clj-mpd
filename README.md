@@ -10,12 +10,6 @@ extra helper functions and other functionality.
 * Implement "useful" methods from javampd.
 * Fix NULL derefs when MPD isn't running/playing.
 
-### To implement:
-
-<pre>
-MPDOutput
-</pre>
-
 ## Usage
 
 clj-mpd is still a work in progress -- use at your own peril.
