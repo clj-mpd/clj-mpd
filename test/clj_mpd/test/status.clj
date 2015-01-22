@@ -6,8 +6,8 @@
 
 (deftest display-currently-playing
   (with-mpd-connection :default
-    (let [{:keys [title artist album length]} (status (player))
-          elapsed-time (get-elapsed-time (player))]
+    (let [{:keys [title artist album length]} (status)
+          elapsed-time (get-elapsed-time)]
       (printf "\nCurrent song: %s - %s\n" artist title)
       (println "From the album: " album)
       (printf "Time played: %s / %s\n" (format-seconds elapsed-time)

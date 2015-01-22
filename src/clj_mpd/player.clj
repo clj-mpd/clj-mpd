@@ -23,103 +23,139 @@
 
 (defn get-current-song
   "Get current song as MPDSong"
-  [player]
-  (.getCurrentSong player))
+  ([]
+   (get-current-song (player)))
+  ([player]
+    (.getCurrentSong player)))
 
 (defn get-elapsed-time
   "Get the elapsed time in seconds."
-  [player]
-  (.getElapsedTime player))
+  ([]
+    (get-elapsed-time (player)))
+  ([player]
+    (.getElapsedTime player)))
 
 (defn get-total-time
   "Get the total time of the current song."
-  [player]
-  (.getTotalTime player))
+  ([]
+    (get-total-time (player)))
+  ([player]
+    (.getTotalTime player)))
 
 (defn get-bitrate
   "Get the bitrate of the current stream."
-  [player]
-  (.getBitrate player))
+  ([]
+    (get-bitrate (player)))
+  ([player]
+    (.getBitrate player)))
 
 (defn get-volume
   "Get the current volume."
-  [player]
-  (.getVolume player))
+  ([]
+    (get-volume (player)))
+  ([player]
+    (.getVolume player)))
 
 (defn get-state
   "Get the current player state (e.g. playing, paused, stopped)."
-  [player]
-  (.getStatus player))
+  ([]
+    (get-state (player)))
+  ([player]
+    (.getStatus player)))
 
 (defn repeat?
   "Get true/false status for repeat mode."
-  [player]
-  (.isRepeat player))
+  ([]
+    (repeat? (player)))
+  ([player]
+    (.isRepeat player)))
 
 (defn random?
   "Get true/false status for random mode."
-  [player]
-  (.isRandom player))
+  ([]
+    (random? (player)))
+  ([player]
+    (.isRandom player)))
 
 (defn status
   "Returns a map of current song information from a player instance."
-  [player]
-  (let [song (get-current-song player)]
-    {:file          (song/get-file song)
-     :artist        (song/get-artist song)
-     :album         (song/get-album song)
-     :title         (song/get-title song)
-     :track         (song/get-track-number song)
-     :disc          (song/get-disc-number song)
-     :genre         (song/get-genre song)
-     :year          (song/get-year song)
-     :length        (song/get-length song)
-     :id            (song/get-id song)
-     :position      (song/get-position song)}))
+  ([]
+    (status (player)))
+  ([player]
+    (let [song (get-current-song player)]
+      {:file          (song/get-file song)
+       :artist        (song/get-artist song)
+       :album         (song/get-album song)
+       :title         (song/get-title song)
+       :track         (song/get-track-number song)
+       :disc          (song/get-disc-number song)
+       :genre         (song/get-genre song)
+       :year          (song/get-year song)
+       :length        (song/get-length song)
+       :id            (song/get-id song)
+       :position      (song/get-position song)})))
 
 ;;; setters
 
-(defn mute
+(defn mute!
   "Mutes the volume."
-  [player]
-  (.mute player))
+  ([]
+    (mute! (player)))
+  ([player]
+    (.mute player)))
 
-(defn unmute
+(defn unmute!
   "Unmutes the player."
-  [player]
-  (.unMute player))
+  ([]
+    (unmute! (player)))
+  ([player]
+    (.unMute player)))
 
-(defn stop
+(defn stop!
   "Stop the current song."
-  [player]
-  (.stop player))
+  ([]
+    (stop! (player)))
+  ([player]
+    (.stop player)))
 
-(defn pause
+(defn pause!
   "Pause the current song"
-  [player]
-  (.pause player))
+  ([]
+    (pause! (player)))
+  ([player]
+    (.pause player)))
 
-(defn play
+(defn play!
   "Play the current song."
-  [player]
-  (.play player))
+  ([]
+    (play! (player)))
+  ([player]
+    (.play player)))
 
-(defn play-next
+(defn play-next!
   "Play the next song."
-  [player]
-  (.playNext player))
+  ([]
+    (play-next! (player)))
+  ([player]
+    (.playNext player)))
 
-(defn play-prev
+(defn play-prev!
   "Play the previous song."
-  [player]
-  (.playPrev player))
+  ([]
+    (play-prev! (player)))
+  ([player]
+    (.playPrev player)))
 
-(defn set-random
+(defn set-random!
   "Turn random playing on/off."
-  [player random]
-  (.setRandom player random))
+  ([random]
+    (set-random! (player) random))
+  ([player random]
+    (.setRandom player random)))
 
-(defn set-repeat
+(defn set-repeat!
   "Turn repeated playing on/off."
-  [player repeat]
-  (.setRepeat player repeat))
+  ([repeat]
+    (set-repeat! (player) repeat))
+  ([player repeat]
+    (.setRepeat player repeat)))
