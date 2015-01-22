@@ -57,11 +57,12 @@
     (.getVolume player)))
 
 (defn get-state
-  "Get the current player state (e.g. playing, paused, stopped)."
+  "Get the current player state as a string.
+  (e.g. STATUS_PLAYING, STATUS_PAUSED, STATUS_STOPPED)"
   ([]
     (get-state (player)))
   ([player]
-    (.getStatus player)))
+    (str (.getStatus player))))
 
 (defn repeat?
   "Get true/false status for repeat mode."
