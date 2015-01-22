@@ -1,6 +1,6 @@
 (ns ^{:author "Dave Yarwood"
       :doc "MPDAlbum related functions for clj-mpd"}
-  clj-mpd.item.album)
+  clj-mpd.objects.album)
 
 (comment
   "MPDAlbum has two attributes: the (album) name and the artistName. Whereas

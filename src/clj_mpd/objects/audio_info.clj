@@ -1,6 +1,6 @@
 (ns ^{:author "Dave Yarwood"
       :doc "MPDAudioInfo related functions for clj-mpd"}
-  clj-mpd.item.audio-info
+  clj-mpd.objects.audio-info
   (:require [clojure.string :as str]))
 
 (defn get-audio-info

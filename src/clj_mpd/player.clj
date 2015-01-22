@@ -10,7 +10,7 @@
       :doc "Playlist related functions for clj-mpd"}
   clj-mpd.player
   (:require [clj-mpd.core :refer (*mpd-connection*)]
-            [clj-mpd.item.song :as song]))
+            [clj-mpd.objects.song :as song]))
 
 (defn player
   "Instantiate a MPDPlayer object"

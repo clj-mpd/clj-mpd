@@ -8,8 +8,7 @@
 
 (ns ^{:author "Jasper Lievisse Adriaanse, Albin Stjerna and Dave Yarwood"
       :doc "MPDSong related functions for clj-mpd"}
-  clj-mpd.item.song
-  (:require [clj-mpd.core :as clj-mpd]))
+  clj-mpd.objects.song)
 
 (defn get-file
   "Get the path of the song (as String)."
