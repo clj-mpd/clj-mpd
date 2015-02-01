@@ -1,6 +1,6 @@
 (ns clj-mpd.test.core
-  (:require [clojure.test :refer :all])
-  (:require [clj-mpd.core :refer :all]))
+  (:require [clojure.test :refer :all]
+            [clj-mpd.core :refer :all]))
 
 ; these tests rely on there being an MPD instance running on localhost:6600
 
