@@ -13,18 +13,24 @@
 
 (defn get-sample-rate
   "Get the sample rate."
-  [audioinfo]
-  (.getSampleRate audioinfo))
+  ([]
+    (get-sample-rate (get-audio-info)))
+  ([audioinfo]
+    (.getSampleRate audioinfo)))
 
 (defn get-bits
   "Get the number of bits."
-  [audioinfo]
-  (.getBits audioinfo))
+  ([]
+    (get-bits (get-audio-info)))
+  ([audioinfo]
+    (.getBits audioinfo)))
 
 (defn get-channels
   "Get the number of channels."
-  [audioinfo]
-  (.getChannels audioinfo))
+  ([]
+    (get-channels (get-audio-info)))
+  ([audioinfo]
+    (.getChannels audioinfo)))
 
 (defn to-str
   "Get a string representation of an MPDAudioInfo object,
