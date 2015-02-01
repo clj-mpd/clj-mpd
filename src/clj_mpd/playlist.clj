@@ -6,15 +6,17 @@
 ;  the terms of this license.
 ;  You must not remove this notice, or any other, from this software.
 
-(ns ^{:author "Jasper Lievisse Adriaanse"
+(ns ^{:author "Jasper Lievisse Adriaanse and Dave Yarwood"
       :doc "Playlist related functions for clj-mpd"}
   clj-mpd.playlist
-  (:require [clj-mpd.core :as clj-mpd]))
+  (:require [clj-mpd.core :refer (*mpd-connection*)]))
 
 (defn create-playlist
   "Instantiate an MPDPlaylist object."
-  [mpd]
-  (.getMPDPlaylist mpd))
+  ([]
+    (create-playlist *mpd-connection*))
+  ([mpd]
+    (.getMPDPlaylist mpd)))
 
 (defn current-playlist
   "Return the entire playlist as seq-ed List<MPDSong>"
