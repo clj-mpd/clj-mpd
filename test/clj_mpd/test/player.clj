@@ -1,8 +1,9 @@
 (ns clj-mpd.test.player
-  (:require [clojure.test :refer :all])
-  (:require [clj-mpd.core :refer (with-mpd-connection)])
-  (:require [clj-mpd.player :refer :all])
-  (:require [clj-mpd.objects.song :as song])
+  (:require [clojure.test :refer :all]
+            [clj-mpd.core :refer (with-mpd-connection)]
+            [clj-mpd.player :refer :all]
+            [clj-mpd.objects.song :as song]
+            [clj-mpd.objects.audio-info :as info])
   (:import [org.bff.javampd.objects MPDSong]))
 
 ; these tests rely on there being an MPD instance running on localhost:6600,
@@ -19,7 +20,11 @@
       (is (number? (get-volume)))
       (is (string? (get-state)))
       (is (contains? #{true false} (repeat?)))
-      (is (contains? #{true false} (random?))))
+      (is (contains? #{true false} (random?)))
+      (is (number? (info/get-sample-rate)))
+      (is (number? (info/get-bits)))
+      (is (number? (info/get-channels)))
+      (is (re-matches #"\d+:\d+:\d+" (info/to-str (info/get-audio-info)))))
     (testing "commands"
       (testing "mute/unmute"
         (let [initial-volume (get-volume)]
@@ -44,7 +49,8 @@
                  (inc current-position)))
           (play-prev!)
           (is (= (song/get-position (get-current-song))
-                 current-position))))
+                 current-position))
+          (pause!)))
       (testing "random/repeat"
         (set-random! true)
         (is (true? (random?)))
