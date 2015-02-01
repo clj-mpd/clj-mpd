@@ -1,12 +1,15 @@
 (ns ^{:author "Dave Yarwood"
       :doc "MPDAudioInfo related functions for clj-mpd"}
   clj-mpd.objects.audio-info
-  (:require [clojure.string :as str]))
+  (:require [clojure.string :as str]
+            [clj-mpd.player :refer (player)]))
 
 (defn get-audio-info
   "Get the audio details of an MPDPlayer."
-  [player]
-  (.getAudioDetails player))
+  ([]
+    (get-audio-info (player)))
+  ([player]
+    (.getAudioDetails player)))
 
 (defn get-sample-rate
   "Get the sample rate."
