@@ -11,14 +11,24 @@
   clj-mpd.playlist
   (:require [clj-mpd.core :refer (*mpd-connection*)]))
 
-(defn create-playlist
-  "Instantiate an MPDPlaylist object."
+(defn controller
+  "Instantiate an MPDPlaylist object. This is actually not a playlist itself,
+   but the Java object used to control the current playlist."
   ([]
-    (create-playlist *mpd-connection*))
+    (controller *mpd-connection*))
   ([mpd]
-    (.getMPDPlaylist mpd)))
+    (.getPlaylist mpd)))
 
 (defn current-playlist
   "Return the entire playlist as seq-ed List<MPDSong>"
-  [playlist]
-  (seq (.getSongList playlist)))
+  ([]
+    (current-playlist (controller)))
+  ([playlist]
+    (seq (.getSongList playlist))))
+
+(defn load-playlist
+  "Loads the playlist with the given name (as a string)."
+  ([playlist]
+    (load-playlist (controller) playlist))
+  ([controller playlist]
+    (.loadPlaylist controller playlist)))
