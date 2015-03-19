@@ -26,9 +26,37 @@
   ([playlist]
     (seq (.getSongList playlist))))
 
-(defn load-playlist
+(defn get-current-song
+  "Get current song as MPDSong"
+  ([]
+   (get-current-song (controller)))
+  ([controller]
+    (.getCurrentSong controller)))
+
+(defn load-playlist!
   "Loads the playlist with the given name (as a string)."
   ([playlist]
-    (load-playlist (controller) playlist))
+    (load-playlist! (controller) playlist))
   ([controller playlist]
     (.loadPlaylist controller playlist)))
+
+(defn add-song!
+  "Adds a song to the current playlist. Song must be an MPDSong object."
+  ([song]
+    (add-song! (controller) song))
+  ([controller song]
+    (.addSong controller song)))
+
+(defn add-songs!
+  "Adds multiple MPDSongs to the current playlist."
+  ([songs]
+    (add-songs! (controller) songs))
+  ([controller songs]
+    (.addSongs controller songs)))
+
+(defn remove-song!
+  "Remove a song from the current playlist. Song must be an MPDSong object."
+  ([song]
+    (remove-song! (controller) song))
+  ([controller song]
+    (.removeSong controller song)))
